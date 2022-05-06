@@ -1,0 +1,16 @@
+[Unit]
+Description=Shaders directory RetroArch
+Before=retroarch.service
+After=storage.mount
+After=systemd-tmpfiles-setup.service
+DefaultDependencies=no
+Conflicts=umount.target shutdown.target
+
+[Mount]
+What=/storage/shaders:/usr/share/common-shaders
+Where=/tmp/shaders
+Type=mergerfs
+Options=defaults,allow_other,use_ino
+
+[Install]
+WantedBy=retroarch.target
