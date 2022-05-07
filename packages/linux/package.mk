@@ -16,6 +16,24 @@ PKG_STAMP="$KERNEL_TARGET $KERNEL_MAKE_EXTRACMD"
 PKG_PATCH_DIRS="$LINUX"
 
 case "$LINUX" in
+  amlogic-3.10)
+    PKG_VERSION="1be06c2371eb3cc3376b282cf77b4d4dee50f01f"
+    PKG_SHA256="658084e610f19c121d098e1577dd7ff84d669bc289a94146d81e6666d8c290d8"
+    PKG_URL="https://github.com/kszaq/linux/archive/$PKG_VERSION.tar.gz"
+    PKG_SOURCE_NAME="linux-$LINUX-$PKG_VERSION.tar.gz"
+    PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET aml-dtbtools:host u-boot-tools-aml:host"
+    PKG_BUILD_PERF="no"
+    PKG_PATCH_DIRS="amlogic-3.10"
+    ;;
+  amlogic-3.14)
+    PKG_VERSION="79b5701b4bc6c0ed23f75a2b57fddff500f0a650"
+    PKG_SHA256="4acd429588d024123b08f75732a024caa159127b61645f81234485c146704e10"
+    PKG_URL="https://github.com/kszaq/linux-amlogic-le/archive/$PKG_VERSION.tar.gz"
+    PKG_SOURCE_NAME="linux-$LINUX-$PKG_VERSION.tar.gz"
+    PKG_DEPENDS_TARGET="$PKG_DEPENDS_TARGET aml-dtbtools:host"
+    PKG_BUILD_PERF="no"
+    PKG_PATCH_DIRS="amlogic-3.14"
+    ;;
   rockchip-4.4)
     PKG_VERSION="91d5b4b982b76ee1a3f2d7b86c501792a8845c17"
     PKG_SHA256="8e689f16a52f858d5d974d3bacac3c703d7f10709bffa59986b8e23e99f24340"
